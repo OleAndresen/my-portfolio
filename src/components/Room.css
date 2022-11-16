@@ -4,3 +4,19 @@
     height: 224px;
     overflow: scroll;
 }
+
+.content-bigscreen{
+    position: relative;
+    width: 328px;
+    height: 184px;
+    overflow: scroll;
+}
+
+.content-cardscreen{
+    position: relative;
+    background: white;
+    color: white;
+    width: 328px;
+    height: 184px;
+    overflow: scroll;
+}

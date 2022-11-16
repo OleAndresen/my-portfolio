@@ -35,8 +35,8 @@ function ThreeScene() {
         args={[0xf0b27a, .4, 12]}
         position={[-7.6, 4, -1.2]}
       />
-      <PerspectiveCamera makeDefault position={[2, 4, 6]} />
-      <OrbitControls />
+      <PerspectiveCamera makeDefault position={[15, 17, 22]} />
+      <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={-Math.PI} maxPolarAngle={Math.PI / 2.1}/>
       <Floor />
       <Room />
     </Canvas>

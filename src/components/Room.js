@@ -1,14 +1,17 @@
 import { useGLTF, Html, Sparkles } from '@react-three/drei'
-import './Room.css'
+import BigScreen from './bigScreen/BigScreen';
 import SmallScreen from './smallScreen/SmallScreen';
+import './Room.css'
+import WorkCardTravel from './work/WorkCardTravel';
+
 
 function Room() {
-    const { nodes, materials } = useGLTF("/portfolio-finished.glb");
-
+    const { nodes, materials } = useGLTF("/portfolio-finished.glb");      
+    
     return (
       <group dispose={null}>
         <Sparkles position={[-7.35, 3.5, -0.8]} color={'#facc15'} count={10} scale={[2, 2, 2]} size={4} speed={2} />
-      <group position={[6.45, 0.64, 4.23]}>
+      <group position={[-1.81, 0.39, 11.89]} rotation={[0, 0.42, 0]}>
         <primitive object={nodes.Bone} />
         <primitive object={nodes.Bone009} />
         <primitive object={nodes.Bone011} />
@@ -32,22 +35,26 @@ function Room() {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.BigScreen.geometry}
-        material={materials.Screen}
-        position={[-2.18, 7.97, -0.21]}
-        rotation={[Math.PI / 2, 0, Math.PI]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.SmallScreen.geometry}
         material={materials.Screen}
         position={[0.79, 9.81, 8.56]}
         rotation={[1.57, 0, -0.95]}
-        >
-        <Html className="content-smallscreen" rotation-x={-Math.PI / 2} position={[0, 0.05, 0]} transform occlude>
-          <SmallScreen />
-        </Html>
+      >
+      <Html className="content-smallscreen" rotation-x={-Math.PI / 2} position={[0, 0.05, 0]} transform occlude>
+        <SmallScreen />
+      </Html>
+      </mesh>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.BigScreen.geometry}
+        material={materials.Screen}
+        position={[-2.18, 7.97, -0.21]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      >
+      <Html className="content-bigscreen" rotation-x={-Math.PI / 2} position={[0, 0.05, 0]} transform occlude >
+        <BigScreen />
+      </Html>
       </mesh>
       <group position={[-4.22, 1.75, 11.27]}>
         <mesh
@@ -99,6 +106,53 @@ function Room() {
           material={materials.Screws}
         />
       </group>
+      <group position={[-12.42, 0.02, 0.69]} rotation={[Math.PI, 0, Math.PI]}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube001.geometry}
+          material={materials.DarkWood}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube001_1.geometry}
+          material={materials.Leaves}
+        />
+      </group>
+      <group
+        position={[7.82, 2.61, -12.43]}
+        rotation={[Math.PI / 2, 0, Math.PI / 2]}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text002.geometry}
+          material={materials.TrainText}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text002_1.geometry}
+          material={materials.Sign}
+        />
+      </group>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.TrainScreen1.geometry}
+        material={materials.Screen}
+        position={[6.58, 0.3, -6.73]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.TrainScreen3.geometry}
+        material={materials.Screen}
+        position={[0.11, 0.3, -6.73]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      />
       <group position={[-2.74, 3.06, -0.16]} rotation={[Math.PI, 0, Math.PI]}>
         <mesh
           castShadow
@@ -122,218 +176,258 @@ function Room() {
           castShadow
           receiveShadow
           geometry={nodes.Cube026_3.geometry}
-          material={materials.DarkWood}
+          material={materials.Sign}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cube026_4.geometry}
-          material={materials.Sign}
+          material={materials.Lamp}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cube026_5.geometry}
-          material={materials.Lamp}
+          material={materials.Post}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cube026_6.geometry}
-          material={materials.Post}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube026_7.geometry}
           material={materials.Street}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube026_8.geometry}
+          geometry={nodes.Cube026_7.geometry}
           material={materials.Hedge}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube026_9.geometry}
-          material={materials.Leaves}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube026_10.geometry}
+          geometry={nodes.Cube026_8.geometry}
           material={materials.Soil}
         />
       </group>
-      <group position={[-1.9, 5.62, 0.23]}>
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020.geometry}
-          material={materials.Pipes}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_1.geometry}
-          material={materials.Building}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_2.geometry}
-          material={materials.StandTop}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_3.geometry}
-          material={materials.Wood}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_4.geometry}
-          material={materials.DarkWood}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_5.geometry}
-          material={materials.Vents}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_6.geometry}
-          material={materials.Blinds}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_7.geometry}
-          material={materials.Boxes}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_8.geometry}
-          material={materials.Sign}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_9.geometry}
-          material={materials.Ele}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_10.geometry}
-          material={materials.ScrennBorder}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_11.geometry}
-          material={materials.Lamp}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_12.geometry}
-          material={materials.Post}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_13.geometry}
-          material={materials.Ropes}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_14.geometry}
-          material={materials.Stairs}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_15.geometry}
-          material={materials.Board}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_16.geometry}
-          material={materials.Cups}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_17.geometry}
-          material={materials.Bottle}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_18.geometry}
-          material={materials.Bottle2}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_19.geometry}
-          material={materials.Bottle4}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_20.geometry}
-          material={materials["Bottle3.001"]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_21.geometry}
-          material={materials.Mugs}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_22.geometry}
-          material={materials.Box}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_23.geometry}
-          material={materials.Barrel}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube020_24.geometry}
-          material={materials.TextColor}
-        />
-      </group>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.TrainScreen2.geometry}
+        material={materials.Screen}
+        position={[3.34, 0.3, -6.74]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.TrainScreen1sec.geometry}
+        material={materials.Screen}
+        position={[6.58, 0.3, -9.35]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.TrainScreen2sec.geometry}
+        material={materials.Screen}
+        position={[3.34, 0.3, -9.35]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.TrainScreen3sec.geometry}
+        material={materials.Screen}
+        position={[0.11, 0.3, -9.35]}
+        rotation={[Math.PI / 2, 0, Math.PI]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cylinder.geometry}
+        material={materials.Board}
+        position={[-8.79, 1.44, 8.75]}
+      />
       <group
-        position={[7.82, 2.61, -12.43]}
+        position={[-1.9, 5.62, 0.23]}
         rotation={[Math.PI / 2, 0, Math.PI / 2]}
       >
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Text002.geometry}
-          material={materials.TrainText}
+          geometry={nodes.Text005.geometry}
+          material={materials.TextBlack}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Text002_1.geometry}
+          geometry={nodes.Text005_1.geometry}
+          material={materials.Pipes}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_2.geometry}
+          material={materials.Building}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_3.geometry}
+          material={materials.StandTop}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_4.geometry}
+          material={materials.Wood}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_5.geometry}
+          material={materials.DarkWood}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_6.geometry}
+          material={materials.Vents}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_7.geometry}
+          material={materials.Blinds}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_8.geometry}
+          material={materials.Boxes}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_9.geometry}
           material={materials.Sign}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_10.geometry}
+          material={materials.Ele}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_11.geometry}
+          material={materials.ScrennBorder}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_12.geometry}
+          material={materials.Lamp}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_13.geometry}
+          material={materials.Post}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_14.geometry}
+          material={materials.Ropes}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_15.geometry}
+          material={materials.Stairs}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_16.geometry}
+          material={materials.Board}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_17.geometry}
+          material={materials.Cups}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_18.geometry}
+          material={materials.Bottle}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_19.geometry}
+          material={materials.Bottle2}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_20.geometry}
+          material={materials.Bottle4}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_21.geometry}
+          material={materials["Bottle3.001"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_22.geometry}
+          material={materials.Mugs}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_23.geometry}
+          material={materials.Box}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_24.geometry}
+          material={materials.Barrel}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Text005_25.geometry}
+          material={materials.TextColor}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes["Neon-Sign2"].geometry}
+          material={materials.Sign}
+          rotation={[-Math.PI / 2, Math.PI / 2, 0]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes["Neon-Sign"].geometry}
+          material={materials.Sign}
+          rotation={[-Math.PI / 2, Math.PI / 2, 0]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes["Neon-Sign3"].geometry}
+          material={materials.Sign}
+          rotation={[-Math.PI / 2, Math.PI / 2, 0]}
         />
       </group>
       <group
@@ -352,23 +446,31 @@ function Room() {
           geometry={nodes.Cylinder019_1.geometry}
           material={materials["Material.002"]}
         />
+      </group>
+      <group position={[6.57, 1.03, 5.15]} rotation={[Math.PI / 2, 0, 1.71]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cylinder019_2.geometry}
-          material={materials.Screen3}
+          geometry={nodes.Cylinder008.geometry}
+          material={materials.Car}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cylinder019_3.geometry}
-          material={materials.Screen2}
+          geometry={nodes.Cylinder008_1.geometry}
+          material={materials.CarGlas}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cylinder019_4.geometry}
-          material={materials["Screen.001"]}
+          geometry={nodes.Cylinder008_2.geometry}
+          material={materials.Lamp}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder008_3.geometry}
+          material={materials.BackLight}
         />
       </group>
     </group>
