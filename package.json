@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-spring/three": "^9.5.5",
     "@react-three/drei": "^9.40.0",
     "@react-three/fiber": "^8.9.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -14,6 +15,7 @@
     "react-scripts": "5.0.1",
     "react-scroll": "^1.8.8",
     "three": "^0.146.0",
+    "three-stdlib": "^2.17.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

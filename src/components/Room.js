@@ -1,9 +1,15 @@
+import * as THREE from 'three'
 import { useGLTF, Html, Sparkles } from '@react-three/drei'
 import BigScreen from './bigScreen/BigScreen';
 import SmallScreen from './smallScreen/SmallScreen';
 import './Room.css'
-import WorkCardTravel from './work/WorkCardTravel';
 
+const glowRed = new THREE.MeshBasicMaterial({ color: new THREE.Color(7, 0, 10), toneMapped: false })
+const glowDarkRed = new THREE.MeshBasicMaterial({ color: new THREE.Color(3, 0, 2), toneMapped: false })
+const glowBlue = new THREE.MeshBasicMaterial({ color: new THREE.Color(0, 0.5, 10), toneMapped: false })
+const glowGreen = new THREE.MeshBasicMaterial({ color: new THREE.Color(0, 2, 0.2), toneMapped: false })
+const glowOrange = new THREE.MeshBasicMaterial({ color: new THREE.Color(4, 0.5, 0), toneMapped: false })
+const glowYellow = new THREE.MeshBasicMaterial({ color: new THREE.Color(1, 0.5, 0.2), toneMapped: false })
 
 function Room() {
     const { nodes, materials } = useGLTF("/portfolio-finished.glb");      
@@ -128,7 +134,7 @@ function Room() {
           castShadow
           receiveShadow
           geometry={nodes.Text002.geometry}
-          material={materials.TrainText}
+          material={glowOrange}
         />
         <mesh
           castShadow
@@ -182,7 +188,7 @@ function Room() {
           castShadow
           receiveShadow
           geometry={nodes.Cube026_4.geometry}
-          material={materials.Lamp}
+          material={glowYellow}
         />
         <mesh
           castShadow
@@ -328,7 +334,7 @@ function Room() {
           castShadow
           receiveShadow
           geometry={nodes.Text005_12.geometry}
-          material={materials.Lamp}
+          material={glowYellow}
         />
         <mesh
           castShadow
@@ -406,27 +412,27 @@ function Room() {
           castShadow
           receiveShadow
           geometry={nodes.Text005_25.geometry}
-          material={materials.TextColor}
+          material={glowOrange}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes["Neon-Sign2"].geometry}
-          material={materials.Sign}
+          material={glowRed}
           rotation={[-Math.PI / 2, Math.PI / 2, 0]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes["Neon-Sign"].geometry}
-          material={materials.Sign}
+          material={glowGreen}
           rotation={[-Math.PI / 2, Math.PI / 2, 0]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes["Neon-Sign3"].geometry}
-          material={materials.Sign}
+          material={glowBlue}
           rotation={[-Math.PI / 2, Math.PI / 2, 0]}
         />
       </group>
@@ -464,13 +470,13 @@ function Room() {
           castShadow
           receiveShadow
           geometry={nodes.Cylinder008_2.geometry}
-          material={materials.Lamp}
+          material={glowOrange}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cylinder008_3.geometry}
-          material={materials.BackLight}
+          material={glowDarkRed}
         />
       </group>
     </group>
