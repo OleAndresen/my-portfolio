@@ -1,22 +1,21 @@
 .text-project{
-    font-size: 54rem;
+    font-size: 45vw;
     top: 175%;
     pointer-events: none;
 }
 
 .text-project-two {
-    font-size: 54rem;
+    font-size: 45vw;
     top: 295%;
     pointer-events: none;
 }
 
 @media screen and (max-width : 768px){
     .text-project{
-        font-size: 26rem;
-        top: 195%;
+        top: 205%;
     }
     
     .text-project-two {
-        font-size: 26rem;
+        top: 290%;
     }
 } 

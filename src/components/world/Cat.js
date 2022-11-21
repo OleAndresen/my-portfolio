@@ -7,7 +7,7 @@ const hoverMat = new THREE.MeshStandardMaterial({ color: new THREE.Color(.9, .9,
 function Cat() {
     const { nodes, materials } = useGLTF("/portfolio-finished-cat.glb");
 
-    const [hoveredCat, hoverCat] = useState(false)
+    const [hoveredCat, hoverCat] = useState(false) 
 
   return (
     <group dispose={null} scale={0}>
