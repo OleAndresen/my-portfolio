@@ -12,6 +12,7 @@ root.render(
       <Suspense fallback={null}>
         <App />
       </Suspense>
+      <Loader />
     </BrowserRouter>
   </>
 );

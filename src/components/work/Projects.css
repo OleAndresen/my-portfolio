@@ -9,3 +9,14 @@
     top: 295%;
     pointer-events: none;
 }
+
+@media screen and (max-width : 768px){
+    .text-project{
+        font-size: 26rem;
+        top: 195%;
+    }
+    
+    .text-project-two {
+        font-size: 26rem;
+    }
+} 

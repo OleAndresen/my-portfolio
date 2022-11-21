@@ -9,5 +9,6 @@
     position: relative;
     width: 360px;
     height: 204px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
