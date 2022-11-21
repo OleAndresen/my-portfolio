@@ -7,8 +7,9 @@ import { UnrealBloomPass } from 'three-stdlib'
 import UI from './components/ui/UI';
 import styled from 'styled-components'
 import TwoD from './components/TwoD'
-import { useRef, useState} from 'react'
+import { useRef, useState, useLayoutEffect} from 'react'
 import { gsap } from "gsap";
+import Emitter from './components/Emitter';
 
 const CanvasContainer = styled.div`
 width: 100%;
@@ -119,7 +120,30 @@ function ThreeScene() {
     }
   }
 
-  console.log(ambient)
+  const camera = useRef()
+  
+  useLayoutEffect(() => {
+    console.log(camera)
+    const handleCameraMove = () => {
+      console.log("camera")
+      let ctx = gsap.context(() => {   
+        gsap.to(camera.current.position, {
+          x: 0,
+          z: -26,
+          ease: "power3.out(2.5)",
+          duration: 1.2
+        });
+    }, camera ); 
+    return () => ctx.revert();
+    }
+    
+    const cameralistener = Emitter.addListener('more-button-clicked', handleCameraMove);
+      return ()=> {
+        cameralistener.remove();
+      }
+    
+  });
+
   return (
     <>
       <UI onClick={toggleDayNight}/>
@@ -142,7 +166,7 @@ function ThreeScene() {
             shadow-camera-top={50}
             shadow-camera-bottom={-50}
           />
-          <PerspectiveCamera makeDefault position={[13, 16, 20]} />
+          <PerspectiveCamera ref={camera} makeDefault position={[13, 16, 20]} />
           <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={-Math.PI} maxPolarAngle={Math.PI / 2.1}/>
           <Floor />
           <Room />
