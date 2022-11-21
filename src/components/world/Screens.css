@@ -1,0 +1,13 @@
+.content-smallscreen{
+    position: relative;
+    width: 174px;
+    height: 224px;
+    overflow: hidden;
+}
+
+.content-bigscreen{
+    position: relative;
+    width: 360px;
+    height: 204px;
+    overflow: scroll;
+}

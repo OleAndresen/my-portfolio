@@ -2,15 +2,16 @@ import React from 'react'
 import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter} from 'react-icons/ai'
 
 function SmallScreen() {
+
   return (
-    <div className=''>
+    <>
         <section className='p-4'>
             <h1 className='text-3xl tracking-tight font-extrabold text-white'>
               <span>Hi, I'm </span>
               <span className='text-green-500'>Ole</span>
             </h1>
             <h1 className='mt-3 tracking-tight font-extrabold text-white'>Frontend Developer</h1>
-            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mt-5 text-sm">
+            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mt-5 text-sm" onClick={(e) => console.log('click')}>
               More
             </button>
             <div className='mt-11 flex justify-center'>
@@ -19,7 +20,7 @@ function SmallScreen() {
               <a className='text-sky-600 hover:text-sky-700' href="https://twitter.com/OleAndresen_" target={'_blank'} rel="noreferrer"><AiOutlineTwitter className='text-2xl' /></a>
             </div>
         </section>
-    </div>
+    </>
   )
 }
 

@@ -5,12 +5,12 @@ import ProjectPoortfolioOld from '../../assets/pictures/projects/project-portfol
 function Work() {
   return (
     <div name='work'>
-        <h1 className='my-4 text-white text-center text-2xl'>Projects i worked on</h1>
+        <h1 className='my-2 text-white text-center text-2xl'>Projects i worked on</h1>
         <div className='max-w-sm text-white text-xs font-medium rounded-lg shadow-md text-center justify-center bg-neutral-900 mx-12 my-6'>
-            <img className='rounded-t-lg' src={ProjectTravel} width={260} height={260} alt='' />
+            <img className='rounded-t-lg' src={ProjectTravel} width={270} height={260} alt='' />
             <div className="p-4">
                 <h3 className='text-xl mb-1'>Travel Website</h3>
-                <p className='mb-5'>A travel website to discorver locations around the world.</p>
+                <p className='mb-5'>A travel website to discover locations around the world.</p>
                 <ul className='flex justify-center gap-4 mb-4'>
                     <li>React</li>
                     <li>JavaScript</li>
@@ -23,7 +23,7 @@ function Work() {
             </div>
         </div>
         <div className='max-w-sm text-white text-xs font-medium rounded-lg shadow-md text-center justify-center bg-neutral-900 mx-12'>
-            <img className='rounded-t-lg' src={ProjectPoortfolioOld} width={260} height={260} alt='' />
+            <img className='rounded-t-lg' src={ProjectPoortfolioOld} width={270} height={260} alt='' />
             <div className="p-4">
                 <h3 className='text-xl mb-1'>Old Portfolio</h3>
                 <p className='mb-5'>My old portfolio in a different setting and less content.</p>

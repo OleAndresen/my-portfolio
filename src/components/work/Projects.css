@@ -1,0 +1,11 @@
+.text-project{
+    font-size: 54rem;
+    top: 175%;
+    pointer-events: none;
+}
+
+.text-project-two {
+    font-size: 54rem;
+    top: 295%;
+    pointer-events: none;
+}
