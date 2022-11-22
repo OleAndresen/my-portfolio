@@ -21,7 +21,6 @@ left: 0;
 extend({ UnrealBloomPass })
 
 function ThreeTwoD() {
-  const color = '#18181b';
   return (
     <>
       <CanvasContainer>
