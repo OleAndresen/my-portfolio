@@ -4,7 +4,7 @@ import BigScreen from '../bigScreen/BigScreen';
 import SmallScreen from '../smallScreen/SmallScreen';
 import './Screens.css'
 
-function Screens() {
+function Screens(a) {
     const { nodes, materials } = useGLTF("/portfolio-finished-screens.glb");
   return (
     <group dispose={null} scale={0}>
@@ -29,7 +29,7 @@ function Screens() {
         rotation={[1.57, 0, -0.95]}
       >
       <Html className="content-smallscreen" rotation-x={-Math.PI / 2} position={[0, 0.05, 0]} transform occlude>
-        <SmallScreen />
+        <SmallScreen a={a}/>
       </Html>
       </mesh>
     </group>

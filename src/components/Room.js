@@ -19,7 +19,7 @@ const glowYellow = new THREE.MeshBasicMaterial({ color: new THREE.Color(3, 1, 0.
 const glowWhite = new THREE.MeshBasicMaterial({ color: new THREE.Color(0.8, 0.8, 0.5), toneMapped: false })
 const hoverMat = new THREE.MeshStandardMaterial({ color: new THREE.Color(.9, .9, .3)})
 
-function Room() {
+function Room(a) {
     const { nodes, materials } = useGLTF("/portfolio-finished.glb");
 
     const [hoveredObjects, hoverObjects] = useState(false)
@@ -169,7 +169,7 @@ function Room() {
       <group dispose={null} ref={modelRef}>
           <Lights />
           <Effects/>
-          <Screens />
+          <Screens a={a}/>
           <Train />
           <Cat />
         <group position={[-4.22, 1.75, 9.81]} scale={0}>

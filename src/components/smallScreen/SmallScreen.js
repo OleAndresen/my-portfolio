@@ -1,8 +1,7 @@
 import React from 'react'
 import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter} from 'react-icons/ai'
-import emitter from '../Emitter';
 
-function SmallScreen() {
+function SmallScreen(a) {
   return (
     <>
         <section className='p-4'>
@@ -11,10 +10,7 @@ function SmallScreen() {
               <span className='text-green-500'>Ole</span>
             </h1>
             <h1 className='mt-3 tracking-tight font-extrabold text-white'>Frontend Developer</h1>
-            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mt-5 text-sm" onClick={(e) => {
-                emitter.emit('more-button-clicked');
-                emitter.removeAllListeners();
-              }}>
+            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded mt-5 text-sm" onClick={a.a.a.a}>
               More
             </button>
             <div className='mt-11 flex justify-center'>

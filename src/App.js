@@ -122,27 +122,18 @@ function ThreeScene() {
 
   const camera = useRef()
   
-  useLayoutEffect(() => {
-    console.log(camera)
-    const handleCameraMove = () => {
-      console.log("camera")
-      let ctx = gsap.context(() => {   
-        gsap.to(camera.current.position, {
-          x: 0,
-          z: -26,
-          ease: "power3.out(2.5)",
-          duration: 1.2
-        });
-    }, camera ); 
+  const handleCameraMove = () => {
+    let ctx = gsap.context(() => {   
+      gsap.to(camera.current.position, {
+        x: 0,
+        y: 14,
+        z: -24,
+        ease: "power3.out(2.5)",
+        duration: 1.2
+      });
+  }, camera ); 
     return () => ctx.revert();
-    }
-    
-    const cameralistener = Emitter.addListener('more-button-clicked', handleCameraMove);
-      return ()=> {
-        cameralistener.remove();
-      }
-    
-  });
+  }
 
   return (
     <>
@@ -169,7 +160,7 @@ function ThreeScene() {
           <PerspectiveCamera ref={camera} makeDefault position={[13, 16, 20]} />
           <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={-Math.PI} maxPolarAngle={Math.PI / 2.1}/>
           <Floor />
-          <Room />
+          <Room a={handleCameraMove}/>
           <Effects disableGamma>
             <unrealBloomPass threshold={1} strength={1.0} radius={0.5} />
           </Effects>
