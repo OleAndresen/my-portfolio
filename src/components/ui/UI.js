@@ -48,8 +48,8 @@ function UI({ onClick }) {
         </div>
         <div className={navbarOpen ? "showMenuNav h-0" : "hidden"}>
             <div className='md:hidden z-10 '>
-                <button className='bg-neutral-200 hover:bg-neutral-400 text-black rounded-xl p-3 text-xl shadow-md fixed right-10 top-10 z-50' type='button' onClick={onClick}><BsSun /></button>s
-                <a href='/portfolio' className='bg-neutral-200 hover:bg-neutral-400 text-black font-medium z-50 fixed rounded-xl px-3 py-2.5 right-10 top-28 shadow-md cursor-pointer'>2D</a>
+                <button className='bg-neutral-200 hover:bg-neutral-400 text-black rounded-xl p-3 text-xl shadow-md fixed right-14 top-10 z-50' type='button' onClick={onClick}><BsSun /></button>s
+                <a href='/portfolio' className='bg-neutral-200 hover:bg-neutral-400 text-black font-medium z-50 fixed rounded-xl px-3 py-2.5 right-14 top-28 shadow-md cursor-pointer'>2D</a>
             </div>
         </div>
         <div ref={hero} className="relative z-10 text-white" onWheel={(e) => { if(scroll === true) {
