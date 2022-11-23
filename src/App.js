@@ -7,9 +7,8 @@ import { UnrealBloomPass } from 'three-stdlib'
 import UI from './components/ui/UI';
 import styled from 'styled-components'
 import TwoD from './components/TwoD'
-import { useRef, useState, useLayoutEffect} from 'react'
+import { useRef, useState} from 'react'
 import { gsap } from "gsap";
-import Emitter from './components/Emitter';
 
 const CanvasContainer = styled.div`
 width: 100%;
@@ -160,7 +159,7 @@ function ThreeScene() {
           <PerspectiveCamera ref={camera} makeDefault position={[13, 16, 20]} />
           <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={-Math.PI} maxPolarAngle={Math.PI / 2.1}/>
           <Floor />
-          <Room a={handleCameraMove}/>
+          <Room a={handleCameraMove} />
           <Effects disableGamma>
             <unrealBloomPass threshold={1} strength={1.0} radius={0.5} />
           </Effects>

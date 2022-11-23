@@ -63,10 +63,10 @@ function UI({ onClick }) {
                 emitter.removeAllListeners();
             }}}
             >
-            <div ref={arrow} className="opacity-0 absolute z-10 bottom-20 left-2/4 text-neutral-200 animate-bounce"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 14.95q-.2 0-.375-.063-.175-.062-.325-.212L6.675 10.05q-.275-.275-.262-.688.012-.412.287-.687.275-.275.7-.275.425 0 .7.275l3.9 3.9 3.925-3.925q.275-.275.688-.263.412.013.687.288.275.275.275.7 0 .425-.275.7l-4.6 4.6q-.15.15-.325.212-.175.063-.375.063Z"/></svg></div>
+            <div ref={arrow} className="opacity-0 absolute z-10 bottom-20 left-1/2 -translate-x-1/2 text-neutral-200 animate-bounce"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path fill="currentColor" d="M12 14.95q-.2 0-.375-.063-.175-.062-.325-.212L6.675 10.05q-.275-.275-.262-.688.012-.412.287-.687.275-.275.7-.275.425 0 .7.275l3.9 3.9 3.925-3.925q.275-.275.688-.263.412.013.687.288.275.275.275.7 0 .425-.275.7l-4.6 4.6q-.15.15-.325.212-.175.063-.375.063Z"/></svg></div>
             <section className="hero w-screen h-screen">
                 <div className="relative h-full my-0 mx-auto max-w-screen-2xl">
-                    <div className=" absolute top-1/2 text-lg left-1/3">
+                    <div className=" absolute top-1/2 text-lg md:left-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 md:ml-20">
                         <Typewriter
                             words={['Welcome to my portfolio! ', 'Scroll down to start. ']}
                             cursor

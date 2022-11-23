@@ -79,7 +79,7 @@ function ThreeTwoD() {
 
   return (
     <>
-      <NavbarTD onClick={toggleDayNight}/>
+      <NavbarTD onClick={toggleDayNight} />
       <CanvasContainer>
         <Canvas dpr={[1, 1.5]} shadows camera={{ position: [-28, 19, 26], fov: 35 }} gl={{ alpha: false }}>
         <ambientLight ref={ambient} intensity={0.25} color={[0.047058823529411764, 0.06274509803921569, 0.21176470588235294]} />

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import * as THREE from 'three'
 import { useGLTF } from "@react-three/drei";
@@ -19,37 +19,73 @@ function Train() {
     const textureOldPortfolioSite = useLoader(THREE.TextureLoader, OldPorfolioImage);
 
     const [hovered, hover] = useState(false)
-   
+    const [trainMoved, trainMove] = useState(true)
+    const [trainEnabled, enableTrain] = useState(false)
+
     const trainRef = useRef();
     const tlt = useRef();
-
-    const animateTrain = () => {
-      const ctx = gsap.context(() => {
-      tlt.current && tlt.current.progress(0).kill();
-      
-      tlt.current = gsap.timeline()
-        .to(trainRef.current.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "power3.out(2.5)",
-          duration: 1
-        })
-        .to(trainRef.current.position, {
-          x: 0,
-          ease: "power3.out(2.5)",
-          duration: 3
-        })
-      }, trainRef);
-
-      return () => { 
-        ctx.revert();
-      }
-    }
+    
+    useLayoutEffect(() => {
+      if(trainEnabled === true) {
+        if(trainMoved === false) {
+          trainRef.current.scale.x = 0;
+          trainRef.current.scale.y = 0;
+          trainRef.current.scale.z = 0;
+  
+          const ctx = gsap.context(() => {
+            tlt.current && tlt.current.progress(0).kill();
+            tlt.current = gsap.timeline()
+            .to(trainRef.current.position, {
+              x: 80,
+            })
+              .to(trainRef.current.scale, {
+                x: 1,
+                y: 1,
+                z: 1,
+                ease: "power3.out(2.5)",
+                duration: .5
+              })
+              .to(trainRef.current.position, {
+                x: 0,
+                ease: "power3.out(2.5)",
+                duration: 4
+              })
+          }, trainRef);
+          return () => { 
+            ctx.revert();
+          }
+        }
+        else {
+          trainRef.current.scale.x = 1;
+          trainRef.current.scale.y = 1;
+          trainRef.current.scale.z = 1;
+  
+          const ctx = gsap.context(() => {
+            tlt.current && tlt.current.progress(0).kill();
+            tlt.current = gsap.timeline()
+              .to(trainRef.current.position, {
+                x: -90,
+                ease: "power3.in(2.5)",
+                duration: 3
+              })
+              .to(trainRef.current.scale, {
+                x: 0,
+                y: 0,
+                z: 0,
+                ease: "power3.out(2.5)",
+                duration: .5
+              })  
+          }, trainRef);
+          return () => { 
+            ctx.revert();
+          }
+        }
+      } 
+    }, [trainMoved]);
     
   return (
     <group dispose={null}>
-      <group ref={trainRef} scale={0} position={[70, 0, 0]}>
+      <group ref={trainRef} scale={0}>
         <mesh
           castShadow
           receiveShadow
@@ -158,7 +194,10 @@ function Train() {
           receiveShadow
           geometry={nodes.Text002_1.geometry}
           material= {hovered ? hoverMat : materials.Sign}
-          onClick={animateTrain}
+          onClick={(e) => {
+            enableTrain(true)
+            trainMove(!trainMoved)
+          }}
           onPointerOver={(e) => {
             document.body.style.cursor = 'pointer'
             hover(true)

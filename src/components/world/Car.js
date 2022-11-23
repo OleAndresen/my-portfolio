@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from 'three'
 
@@ -7,9 +7,11 @@ const glowYellow = new THREE.MeshBasicMaterial({ color: new THREE.Color(3, 1, 0.
 
 function Car() {
     const { nodes, materials } = useGLTF("/portfolio-finished-car.glb");
+    const carRef = useRef()
+    
   return (
     <group dispose={null}>
-      <group position={[-5, 0, -5]} rotation={[Math.PI / 2, 0, -1.15]} scale={2}> 
+      <group position={[-6.2, 0, -4.6]} rotation={[Math.PI / 2, 0, -1.15]} scale={2} ref={carRef}> 
         <mesh
           castShadow
           receiveShadow

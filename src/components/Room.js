@@ -23,7 +23,10 @@ function Room(a) {
     const { nodes, materials } = useGLTF("/portfolio-finished.glb");
 
     const [hoveredObjects, hoverObjects] = useState(false)
-
+    const [changedMaterial, changeMaterial] = useState(true)
+    const [changedMaterial2, changeMaterial2] = useState(true)
+    const [changedMaterial3, changeMaterial3] = useState(true)
+ 
     const tl = useRef();
     const modelRef = useRef();
     
@@ -461,22 +464,43 @@ function Room(a) {
             castShadow
             receiveShadow
             geometry={nodes["Neon-Sign"].geometry}
-            material={glowGreen}
+            material= {changedMaterial ? glowGreen : materials.Sign}
             rotation={[-Math.PI / 2, Math.PI / 2, 0]}
+            onClick={(e) => {changeMaterial(!changedMaterial)}}
+            onPointerOver={(e) => {
+              document.body.style.cursor = 'pointer'
+            }}
+            onPointerOut={(e) => {
+              document.body.style.cursor = 'default'
+            }}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes["Neon-Sign3"].geometry}
-            material={glowBlue}
+            material= {changedMaterial2 ? glowBlue : materials.Sign}
             rotation={[-Math.PI / 2, Math.PI / 2, 0]}
+            onClick={(e) => {changeMaterial2(!changedMaterial2)}}
+            onPointerOver={(e) => {
+              document.body.style.cursor = 'pointer'
+            }}
+            onPointerOut={(e) => {
+              document.body.style.cursor = 'default'
+            }}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes["Neon-Sign2"].geometry}
-            material={glowRed}
+            material= {changedMaterial3 ? glowRed : materials.Sign}
             rotation={[-Math.PI / 2, Math.PI / 2, 0]}
+            onClick={(e) => {changeMaterial3(!changedMaterial3)}}
+            onPointerOver={(e) => {
+              document.body.style.cursor = 'pointer'
+            }}
+            onPointerOut={(e) => {
+              document.body.style.cursor = 'default'
+            }}
           />
         </group>
         <group position={[0.74, 13.17, -0.22]} rotation={[-0.24, 0.06, -0.12]} scale={0}>
