@@ -145,7 +145,7 @@ function ThreeScene() {
   return (
     <>
       <UI onClick={toggleDayNight} m={handleMailBoxOpen}/>
-      <HelpModal mailboxOpened={mailboxOpened} />
+      <HelpModal mailboxOpened={mailboxOpened} onClick={handleMailBoxOpen}/>
       <CanvasContainer>
         <Canvas shadows dpr={[1, 2]}>
           <color attach="background" args={['#202030']} ref={background}/>
