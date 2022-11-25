@@ -26,7 +26,7 @@ function Room(a) {
     const [changedMaterial, changeMaterial] = useState(true)
     const [changedMaterial2, changeMaterial2] = useState(true)
     const [changedMaterial3, changeMaterial3] = useState(true)
- 
+
     const tl = useRef();
     const modelRef = useRef();
     
@@ -134,8 +134,8 @@ function Room(a) {
             duration: 0.5
           },("light", "-=1.2"))
           .to(modelRef.current.children[5], {
-           
-          })
+            visible: true
+          },("light"))
           .to(modelRef.current.children[8].scale, {
             x: 1,
             y: 1,
@@ -174,7 +174,7 @@ function Room(a) {
           <Effects/>
           <Screens a={a}/>
           <Train />
-          <Cat />
+          <Cat onClick={a}/>
         <group position={[-4.22, 1.75, 9.81]} scale={0}>
           <mesh
             castShadow
@@ -240,7 +240,7 @@ function Room(a) {
             castShadow
             receiveShadow
             geometry={nodes.Cube001.geometry}
-            material={materials.DarkWood}
+            material= {materials.DarkWood}
           />
           <mesh
             castShadow

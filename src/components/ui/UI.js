@@ -4,9 +4,11 @@ import { Typewriter } from 'react-simple-typewriter'
 import emitter from '../Emitter';
 import { BsSun } from 'react-icons/bs'
 import { HiOutlineMenu } from 'react-icons/hi'
-import { AiOutlineClose} from 'react-icons/ai'
+import { AiOutlineClose } from 'react-icons/ai'
+import toast, { Toaster } from 'react-hot-toast';
+import CatPic from '../../assets/pictures/Cat.png'
 
-function UI({ onClick }) {
+function UI(onClick) {
     const [scroll, setScroll] = useState(false);
     const [navbarOpen, setNavbarOpen] = useState(false)
     const arrow = useRef()
@@ -26,7 +28,7 @@ function UI({ onClick }) {
         let ctx = gsap.context(() => {   
             gsap.to(buttons.current.children, {opacity: 1});        
         }, buttons); 
-        return () => ctx.revert();
+        return () => ctx.revert();  
     }
 
     const handleScroll = () => { 
@@ -37,29 +39,96 @@ function UI({ onClick }) {
         return () => ctx.revert();
     }
 
+    const [toasted, setToasted] = useState(true);
+
+    const toastMessage = () => {
+        if(toasted === true) {
+            setTimeout(toastPopUp, 12000);
+        }
+    }
+
+    const toastPopUp = () => {
+        toast.custom((t) => (
+            <div
+              className={`${
+                t.visible ? 'animate-enter' : 'animate-leave'
+              } max-w-sm w-full bg-zinc-800 shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+            >
+              <div className="flex-1 w-0 p-4">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 pt-0.5">
+                    <img
+                      className="h-10 w-10 rounded-full"
+                      src={CatPic}
+                      alt=""
+                      onClick={onClick.m}
+                      onPointerOver={(e) => {
+                        document.body.style.cursor = 'pointer'
+                      }}
+                      onPointerOut={(e) => {
+                        document.body.style.cursor = 'default'
+                      }}
+                    />
+                  </div>
+                  <div className="ml-5 flex-1">
+                    <p className="text-sm font-medium text-neutral-200">
+                      Need help?
+                    </p>
+                    <p className="mt-1 text-sm text-neutral-200">
+                      Click one of the Cats for tips.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex border-l border-zinc-700">
+                <button
+                  onClick={() => toast.dismiss(t.id)}
+                  className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-neutral-200 hover:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-zinc-600"
+                >
+                  <AiOutlineClose className='text-xl'/>
+                </button>
+              </div>
+            </div>
+          ))
+    }
+
   return (
     <>
+        <div>
+            <Toaster position="bottom-right" reverseOrder={true} toastOptions={{
+            className: '',
+            duration: 12000 }}
+            containerStyle={{
+                bottom: 86,
+                right: 64,
+              }}
+            />
+        </div>
         <div ref={buttons} className='hidden md:block'>
-            <button className='bg-neutral-200 hover:bg-neutral-400 text-black z-50 fixed rounded-xl p-3 text-xl right-14 top-10 shadow-md opacity-0' type='button' onClick={onClick}><BsSun /></button>
-            <a href='/portfolio' className='bg-neutral-200 hover:bg-neutral-400 text-black font-medium z-50 fixed rounded-xl px-3 py-2.5 right-14 top-28 shadow-md cursor-pointer opacity-0'>2D</a>
+            <button className='bg-zinc-800 hover:bg-zinc-700 text-neutral-200 hover:text-green-500 z-50 fixed rounded-xl p-3 text-xl right-14 top-10 shadow-md opacity-0' type='button' onClick={onClick.onClick}><BsSun /></button>
+            <a href='/portfolio' className='bg-zinc-800 hover:bg-zinc-700 text-neutral-200 hover:text-green-500 font-medium z-50 fixed rounded-xl px-3 py-2.5 right-14 top-28 shadow-md cursor-pointer opacity-0'>2D</a>
         </div>
         <div className='md:hidden text-neutral-200 hover:text-neutral-400 fixed left-10 top-10 z-50'>
             <button className='mobile-menu-button ' onClick={() => setNavbarOpen((prev) => !prev)}>{!navbarOpen ? (<HiOutlineMenu className='text-4xl'/>) : (<AiOutlineClose className='text-4xl' />)}</button>
         </div>
         <div className={navbarOpen ? "showMenuNav h-0" : "hidden"}>
             <div className='md:hidden z-10 '>
-                <button className='bg-neutral-200 hover:bg-neutral-400 text-black rounded-xl p-3 text-xl shadow-md fixed right-14 top-10 z-50' type='button' onClick={onClick}><BsSun /></button>s
-                <a href='/portfolio' className='bg-neutral-200 hover:bg-neutral-400 text-black font-medium z-50 fixed rounded-xl px-3 py-2.5 right-14 top-28 shadow-md cursor-pointer'>2D</a>
+                <button className='bg-zinc-800 hover:bg-zinc-700 text-neutral-200  hover:text-green-500 rounded-xl p-3 text-xl shadow-md fixed right-14 top-10 z-50' type='button' onClick={onClick.onClick}><BsSun /></button>s
+                <a href='/portfolio' className='bg-zinc-800 hover:bg-zinc-700 text-neutral-200 hover:text-green-500 font-medium z-50 fixed rounded-xl px-3 py-2.5 right-14 top-28 shadow-md cursor-pointer'>2D</a>
             </div>
         </div>
         <div ref={hero} className="relative z-10 text-white" onWheel={(e) => { if(scroll === true) {
                 emitter.emit('intro-ready');
                 handleScroll();
+                toastMessage();
+                setToasted(false);
                 emitter.removeAllListeners();
             }}}
             onTouchMove ={(e) => { if(scroll === true) {
                 emitter.emit('intro-ready');
                 handleScroll();
+                toastMessage();
+                setToasted(false);
                 emitter.removeAllListeners();
             }}}
             >

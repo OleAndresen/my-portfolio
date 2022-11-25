@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter, AiOutlineClose} from 'react-icons/ai'
+import { AiFillGithub, AiFillLinkedin, AiOutlineTwitter, AiOutlineClose } from 'react-icons/ai'
 import { BsSun } from 'react-icons/bs'
 import { Link } from 'react-scroll'
 import { HiOutlineMenu } from 'react-icons/hi'
@@ -9,8 +9,8 @@ function NavbarTD(onClick) {
   return (
     <>
         <div className='hidden md:block'>
-            <button className='bg-neutral-200 hover:bg-neutral-400 text-black z-50 fixed rounded-xl p-3 text-xl right-10 top-10 shadow-md' type='button' onClick={onClick.onClick}><BsSun /></button>
-            <a href='/' className='bg-neutral-200 hover:bg-neutral-400 text-black font-medium z-50 fixed rounded-xl px-3 py-2.5 right-10 top-28 shadow-md cursor-pointer'>3D</a>
+            <button className='bg-zinc-800 hover:bg-zinc-700 text-neutral-200 hover:text-green-500 z-50 fixed rounded-xl p-3 text-xl right-10 top-10 shadow-md' type='button' onClick={onClick.onClick}><BsSun /></button>
+            <a href='/' className='bg-zinc-800 hover:bg-zinc-700 text-neutral-200 hover:text-green-500 font-medium z-50 fixed rounded-xl px-3 py-2.5 right-10 top-28 shadow-md cursor-pointer'>3D</a>
         </div>
         <div className='bg-neutral-900 fixed left-0 top-0 h-screen w-32 text-center justify-evenly flex-col hidden md:flex'>
             <nav className=''>
@@ -39,8 +39,8 @@ function NavbarTD(onClick) {
                     <li className='p-3.5'><Link to='contact-td' smooth={true} duration={500}><button className='hover:text-green-500' href="">Contact</button></Link></li>
                 </ul>
                 <div className='md:hidden z-10 '>
-                    <button className='bg-neutral-200 hover:bg-neutral-400 text-black rounded-xl p-3 text-xl shadow-md fixed right-10 top-10' type='button' onClick={onClick.onClick}><BsSun /></button>
-                    <a href='/' className='bg-neutral-200 hover:bg-neutral-400 text-black font-medium z-50 fixed rounded-xl px-3 py-2.5 right-10 top-28 shadow-md cursor-pointer'>3D</a>
+                    <button className='bg-zinc-800 hover:bg-zinc-700 text-neutral-200 hover:text-green-500 rounded-xl p-3 text-xl shadow-md fixed right-10 top-10' type='button' onClick={onClick.onClick}><BsSun /></button>
+                    <a href='/' className='bg-zinc-800 hover:bg-zinc-700 text-neutral-200 hover:text-green-500 font-medium z-50 fixed rounded-xl px-3 py-2.5 right-10 top-28 shadow-md cursor-pointer'>3D</a>
                 </div>
             </nav>  
         </div>
